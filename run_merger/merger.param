@@ -1,0 +1,11 @@
+achInFile       = merger.tipsy
+achOutName	= merger
+bStandard	= 1
+iOutInterval	= 1
+iLogInterval	= 1
+dDelta 		= 0.2
+dSoft           = 0.02
+nSteps          = 250
+dTheta          = 0.7
+dMsolUnit       = 1e8
+dKpcUnit        = 1
