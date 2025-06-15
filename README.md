@@ -58,3 +58,27 @@ You can see if your job has started using the `squeue` command:
 `squeue -u $USER`
 
 If the `ST` column shows `R`, the supercomputer has started running your job.
+
+You can monitor the progress of the job by looking at either `screen.log` or `merger.log`:
+
+`tail screen.log`
+`tail merger.log`
+
+When the simulation has finished, there should be 400 "snapshots" in the
+`run_merger` directory, each corresponding to roughly 8 million years of time:
+that means the simulation covers a total time of about 3 billion years.
+
+# Step 3: Visualize your simulation
+Now that we've run this simulation, we probably want to actually look at it.  I've 
+created a script you can run that will make a movie out of your simulation.  You just need to
+run it using:
+
+`make_movie.sh run_merger faceon`
+
+This will make you a movie file `faceon.mp4`, showing the collision of these two galaxies.
+
+# Step 4: Experiment with different galaxy rotations
+Next, let's try making a different simulation by repeating steps 1-3, but using
+angles other than 0 degrees. (90 or 45 would be good choices to try, but you
+can pick anything between 0 and 360).  To compare, you should pick a movie name
+other than `faceon`, so you don't overwrite the original.

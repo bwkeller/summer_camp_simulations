@@ -6,7 +6,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 basename = 'merger'
-n_snaps = 250
+n_snaps = 300
 
 if __name__ == "__main__":
     for i in range(n_snaps):
@@ -20,4 +20,5 @@ if __name__ == "__main__":
         plt.gca().set_facecolor('black')
         plt.gca().set_aspect('equal')
         plt.gcf().set_facecolor('black')
+        plt.figtext(0.9, 0.9, f'{snap.properties["time"].in_units("Myr"):%4d} Myr', color='white')
         plt.savefig(f'images/im{i:05d}.png', dpi=200)

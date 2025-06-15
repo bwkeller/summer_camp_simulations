@@ -53,8 +53,6 @@ if __name__ == "__main__":
     s_new['x'][h['ndark']:] -= d0/2
     s_new['vx'][:h['ndark']] -= v0/2
     s_new['vx'][h['ndark']:] += v0/2
-    s_new['vy'][:h['ndark']] -= 1
-    s_new['vy'][h['ndark']:] += 1
-    s_new['vz'][:h['ndark']] -= 1
-    s_new['vz'][h['ndark']:] += 1
+    s_new['vy'][:h['ndark']] -= 0.5
+    s_new['vy'][h['ndark']:] += 0.5
     wtipsy('merger.tipsy', h_new, g_new, d_new, s_new, STANDARD=True)
