@@ -1,2 +1,5 @@
+merger.0*
+*.mp4
+*.log
 merger.tipsy
 __pycache__
