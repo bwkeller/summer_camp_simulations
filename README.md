@@ -62,20 +62,28 @@ If the `ST` column shows `R`, the supercomputer has started running your job.
 You can monitor the progress of the job by looking at either `screen.log` or `merger.log`:
 
 `tail screen.log`
+
+or 
+
 `tail merger.log`
 
-When the simulation has finished, there should be 400 "snapshots" in the
+When the simulation has finished, there should be 300 "snapshots" in the
 `run_merger` directory, each corresponding to roughly 8 million years of time:
 that means the simulation covers a total time of about 3 billion years.
 
 # Step 3: Visualize your simulation
 Now that we've run this simulation, we probably want to actually look at it.  I've 
 created a script you can run that will make a movie out of your simulation.  You just need to
-run it using:
+run it from the main `summer_camp` directory using:
 
-`make_movie.sh run_merger faceon`
+```cd ~/summer_camp
+./make_movie.sh run_merger faceon
+```
 
 This will make you a movie file `faceon.mp4`, showing the collision of these two galaxies.
+
+You can view your movie by dragging-and-dropping the file from mobaXTerm to
+your desktop and opening it there.
 
 # Step 4: Experiment with different galaxy rotations
 Next, let's try making a different simulation by repeating steps 1-3, but using
