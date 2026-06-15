@@ -12,8 +12,8 @@ if __name__ == "__main__":
         exit(1)
     theta = float(argv[1])
     phi = float(argv[2])
-    d0 = 200 #kpc
-    v0 = 200 #km/s
+    d0 = 100 #kpc
+    v0 = 100 #km/s
     v0 /= 20.7403
     h,g,d,s = rtipsy('mw.tipsy')
     h_new = h.copy()
@@ -51,8 +51,10 @@ if __name__ == "__main__":
     # offset the second disk
     s_new['x'][:h['ndark']] += d0/2
     s_new['x'][h['ndark']:] -= d0/2
+    s_new['y'][:h['ndark']] -= d0/10
+    s_new['y'][h['ndark']:] += d0/10
     s_new['vx'][:h['ndark']] -= v0/2
     s_new['vx'][h['ndark']:] += v0/2
-    s_new['vy'][:h['ndark']] -= 0.5
-    s_new['vy'][h['ndark']:] += 0.5
+    s_new['vy'][:h['ndark']] -= 0.55
+    s_new['vy'][h['ndark']:] += 0.55
     wtipsy('merger.tipsy', h_new, g_new, d_new, s_new, STANDARD=True)
