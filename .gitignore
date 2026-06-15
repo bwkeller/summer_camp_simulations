@@ -3,3 +3,4 @@ merger.0*
 *.log
 merger.tipsy
 __pycache__
+slurm*
