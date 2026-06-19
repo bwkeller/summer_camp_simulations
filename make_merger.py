@@ -8,7 +8,7 @@ nbulge = 65536
 
 if __name__ == "__main__":
     if(len(argv) < 3):
-        print('usage: make_IC.py theta phi')
+        print('usage: make_merger.py theta phi')
         exit(1)
     theta = float(argv[1])
     phi = float(argv[2])

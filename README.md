@@ -24,7 +24,7 @@ Every N-Body simulation starts with _initial conditions_, which describe the
 positions and velocities of the particles at t=0.  We're going to build an
 initial condition made of two galaxies that will collide with each other.
 
-I've written a script called `make_IC.py` that will create this for you.  It
+I've written a script called `make_merger.py` that will create this for you.  It
 takes two arguments: the first is the angle of the second galaxy in the x-axis
 (which rotates the disl towards or away from you), and the second is the angle
 of the second galaxy in the y-axis (which rotates the disk up or down).  
@@ -32,7 +32,7 @@ of the second galaxy in the y-axis (which rotates the disk up or down).
 Let's first try an experiment where we smash two galaxies together that are both
 face-on:
 
-`./make_IC.py 0 0`
+`./make_merger.py 0 0`
 
 This should create a new file called `merger.tipsy` that contains our initial conditions.
 
@@ -59,13 +59,13 @@ You can see if your job has started using the `squeue` command:
 
 If the `ST` column shows `R`, the supercomputer has started running your job.
 
-You can monitor the progress of the job by looking at either `screen.log` or `merger.log`:
+You can monitor the progress of the job by looking at either `screen.log` or `galaxy.log`:
 
 `tail screen.log`
 
 or 
 
-`tail merger.log`
+`tail galaxy.log`
 
 When the simulation has finished, there should be 300 "snapshots" in the
 `run_merger` directory, each corresponding to roughly 8 million years of time:

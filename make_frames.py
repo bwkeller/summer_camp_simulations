@@ -5,7 +5,7 @@ import pynbody as pyn
 import numpy as np
 import matplotlib.pyplot as plt
 
-basename = 'merger'
+basename = 'galaxy'
 n_snaps = 300
 
 if __name__ == "__main__":

@@ -1,5 +1,5 @@
 achInFile       = merger.tipsy
-achOutName	= merger
+achOutName	= galaxy
 bStandard	= 1
 iOutInterval	= 1
 iLogInterval	= 1
