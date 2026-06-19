@@ -15,6 +15,8 @@ if __name__ == "__main__":
         plt.clf()
         young = snap.s[snap.s['tform'] == 1]
         old = snap.s[snap.s['tform'] == 0]
+        com = np.mean(snap['pos'], axis=0)
+        snap['pos'] -= com
         plt.plot(young['x'][np.argsort(young['z'])], young['y'][np.argsort(young['z'])], 'c,', alpha=0.2)
         plt.plot(old['x'][np.argsort(old['z'])], old['y'][np.argsort(old['z'])], 'y,', alpha=0.05)
         plt.ylim(-150, 150)
