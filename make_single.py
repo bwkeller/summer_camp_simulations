@@ -1,16 +1,30 @@
 #!/usr/bin/env python
-from sys import argv
+import argparse
 import numpy as np
 import pynbody as pyn
 from pytipsy import rtipsy, wtipsy
+from util import setup_rundir
 
 nbulge = 65536
 
 if __name__ == "__main__":
-    if(len(argv) < 2):
-        print('usage: make_single.py velocity_dispersion')
-        exit(1)
-    factor = float(argv[1])/20.7403
+    # 1. Set up the argument parser with help text and boundaries
+    parser = argparse.ArgumentParser(
+        description="Build initial conditions for an isolated galaxy with added velocity dispersion.",
+        epilog="Example: ./make_single.py 50"
+    )
+
+    # Required positional arguments (the angles)
+    parser.add_argument("sigma", type=float,
+                        help="Random velocity dispersion (in km/s)")
+
+    # Optional arguments 
+    parser.add_argument("--name", type=str, default="single",
+                        help="Unique name for this experiment directory and files [Default: single]")
+
+    args = parser.parse_parser_args() if hasattr(parser, 'parse_parser_args') else parser.parse_args()
+
+    factor = float(args.sigma)/20.7403
     h,g,d,s = rtipsy('mw.tipsy')
     h_new = h.copy()
     h_new['ndark'] = 0
@@ -30,4 +44,4 @@ if __name__ == "__main__":
     s_new['vy'] = np.random.normal(loc=s_new['vy'], scale=factor/np.sqrt(3))
     s_new['vz'] = np.random.normal(loc=s_new['vz'], scale=factor/np.sqrt(3))
 
-    wtipsy('single.tipsy', h_new, g_new, d_new, s_new, STANDARD=True)
+    setup_rundir(args.name, h_new, g_new, d_new, s_new)
