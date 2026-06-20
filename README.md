@@ -74,12 +74,17 @@ This will make you a movie file `cold_disc.mp4`. You can view your movie by doub
 Let's see what happens now with a disc that has a lot of random velocity noise (what we would call a "hot" disc).  Try a velocity dispersion in the range of 20 - 60 km/s, and repeat steps 1-3:
 
 Make the IC:
+
 `python make_single.py 40 --name hot`
 
 Run the IC:
+
 `cd run_hot`
+
 `sbatch run.sh`
+
 When the run is finished, visualize the results:
+
 `./make_movie.sh run_hot hot_disc`
 
 What do you see that is different from the cold disc?  Why do you think that is?
@@ -95,10 +100,21 @@ Let's first try an experiment where we smash two galaxies together that are both
 
 `python make_merger.py 0 0 --name baseline`
 
-This script will automatically create a new workspace folder for you called `run_baseline/` and put everything inside it—including your physics files, the supercomputer settings, and the simulation code!
+Run the IC:
+
+`cd run_baseline`
+
+`sbatch run.sh`
+
+When the run is finished, visualize the results:
+
+`./make_movie.sh run_baseline baseline`
+
+What do you see that is different from the isolated discs?  What features in the merger do you think you can change by changing how the merger starts?
+
 
 ## Step 7: Experiment and Alter the Universe!
-Now it's time to build your own custom cosmic experiment. Repeat Steps 1–3, but change the parameters and assign an entirely new, unique `--name`. 
+Now it's time to build your own custom cosmic experiment. Repeat Step 6, but change the parameters and assign an entirely new, unique `--name`. 
 
 For example, to simulate a custom interaction, you can pass parameters to alter the galaxy structures. By using unique names each time, your baseline data and your new experiment data will live in separate folders safely without ever overwriting each other. You can create as many unique universes as your supercomputer time allocation allows!
 
