@@ -9,9 +9,10 @@ def setup_rundir(sim_name, h,g,d,s):
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=12
-#SBATCH --partition=icomputeq
+#SBATCH --partition=acomputeq
 #SBATCH --job-name=merger
 #SBATCH --time=00:15:00
+#SBATCH --reservation=its_12
 
 ./gasoline -sz 12 {sim_name}.param &> screen.log
 """
